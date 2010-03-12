@@ -1,0 +1,4 @@
+#ifndef NETLOGGER_LOGGER_H
+#define NETLOGGER_LOGGER_H
+
+#endif
