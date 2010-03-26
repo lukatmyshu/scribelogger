@@ -9,6 +9,6 @@ DIST_SUBDIRS = $(GENERIC_LIBRARY_NAME)
 
 pkgconfigdir = $(libdir)/pkgconfig
 
-pkgconfig_DATA = netlogger-1.pc
+pkgconfig_DATA = scribelogger-1.pc
 
 EXTRA_DIST=autogen.sh

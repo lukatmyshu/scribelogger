@@ -30,20 +30,13 @@ make DESTDIR=$RPM_BUILD_ROOT install
 rm -rf $RPM_BUILD_ROOT
 
 %post
-if [ $1 -ge 1 ]; then
-	#install stuff goes here
-fi
 
 %preun
-if [ $1 -eq 0 ]; then
-	#uninstall stuff goes here
-fi
 
 %files
 %defattr(-,root,root,-)
 %{_includedir}/
 %{_libdir}/
-%{_bindir}/
 %doc
 
 

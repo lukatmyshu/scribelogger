@@ -8,7 +8,7 @@ library_include_HEADERS = $(h_sources)
 
 INCLUDES = -I$(top_srcdir)
 
-AM_CPPFLAGS = $(GLIB_CFLAGS) $(THRIFT_CFLAGS) -I/usr/local/include/thrift/fb303 -Wall -Werror -O3
+AM_CPPFLAGS = $(GLIB_CFLAGS) $(THRIFT_CFLAGS) -I/usr/include/thrift/fb303 -Wall -Werror -O3
 lib_LTLIBRARIES = libscribelogger-1.la
 libscribelogger_1_la_SOURCES = $(h_sources) $(cc_sources)
 libscribelogger_1_la_LDFLAGS = $(LIBS) $(GLIB_LIBS) $(GTHREAD_LIBS) $(THRIFT_LIBS) -lfb303 $(OP -version-info $(GENERIC_LIBRARY_VERSION) -release $(GENERIC_RELEASE)

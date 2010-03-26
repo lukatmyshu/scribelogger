@@ -14,9 +14,9 @@ scribelogger_t scribelogger_init(const char *host, short port);
 
 void scribelogger_uninit(scribelogger_t);
 
-message_t scribelogger_create_message(const char *msg, const char *category);
+message_t scribelogger_message_new(const char *msg, const char *category);
 
-message_t scribelogger_create_message_nodup(char *msg, char *category);
+message_t scribelogger_message_new_nodup(char *msg, char *category);
 
 void scribelogger_send(scribelogger_t, message_t msg);
 
