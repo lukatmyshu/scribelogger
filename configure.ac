@@ -3,14 +3,14 @@ dnl --------------------------------
 dnl Initialization macros.
 dnl --------------------------------
 
-AC_INIT(netlogger/logger.h)
+AC_INIT(scribelogger/logger.h)
 AM_CONFIG_HEADER(config.h)
 
 dnl -----------------------------------------------
 dnl Package name and version number (user defined)
 dnl -----------------------------------------------
 
-GENERIC_LIBRARY_NAME=netlogger
+GENERIC_LIBRARY_NAME=scribelogger
 
 #release versioning
 GENERIC_MAJOR_VERSION=1
@@ -62,6 +62,18 @@ AM_PATH_GLIB_2_0(2.0.0,,AC_MSG_ERROR([
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 
+PKG_CHECK_MODULES(GTHREAD, gthread-2.0, , [
+    AC_MSG_RESULT(no)
+    AC_MSG_ERROR([Could not find gthread-2.0])])
+AC_SUBST(GTHREAD_CFLAGS)
+AC_SUBST(GTHREAD_LIBS)
+
+PKG_CHECK_MODULES(THRIFT, thrift, , [
+    AC_MSG_RESULT(no)
+    AC_MSG_ERROR([Could not find thrift])])
+AC_SUBST(THRIFT_CFLAGS)
+AC_SUBST(THRIFT_LIBS)
+
 dnl -----------------------------------------------
 dnl Checks for programs.
 dnl -----------------------------------------------
@@ -78,7 +90,7 @@ dnl Generates Makefile's, configuration files and scripts
 dnl -----------------------------------------------
 
 AC_OUTPUT(Makefile \
-          netlogger-1.pc \
-          netlogger/Makefile
+          scribelogger-1.pc \
+          scribelogger/Makefile
 )
 

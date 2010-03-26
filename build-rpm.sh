@@ -1,6 +1,6 @@
 #!/bin/sh
 
-APPNAME=netlogger
+APPNAME=scribelogger
 VERSION=`awk '/^Version/ {print $2;}' $APPNAME.spec`
 RPMBUILDDIR=`rpm --eval "%{_topdir}"`
 
