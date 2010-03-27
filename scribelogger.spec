@@ -4,7 +4,7 @@ Version: 1.0.0
 Release: %{?dist}.0
 License: None
 Group: System Environment/Libraries
-URL: http://random.meebo.com
+URL: http://github.com/lukatmyshu/scribelogger
 Source0: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
