@@ -58,6 +58,7 @@ static gpointer scribe_logging_func(gpointer data)
 	while(!context->thread_shutdown) {
 		try {
 			transport->open();
+			break;
 		} catch(TTransportException &exception) {
 			fprintf(stderr, "Unable to connect, sleeping for 5 seconds\n");
 			sleep(5);
