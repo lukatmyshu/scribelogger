@@ -54,9 +54,15 @@ static gpointer scribe_logging_func(gpointer data)
 	boost::shared_ptr<TTransport> transport(new TFramedTransport(socket));
 	boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport, 0, 0, false, false));
 
-	//TODO try/catch the code that can throw exceptions
 	scribeClient client(protocol);
-	transport->open();
+	while(!context->thread_shutdown) {
+		try {
+			transport->open();
+		} catch(TTransportException &exception) {
+			fprintf(stderr, "Unable to connect, sleeping for 5 seconds\n");
+			sleep(5);
+		}
+	}
 
 	std::vector<LogEntry> messages;
 	while (!context->thread_shutdown) {
@@ -77,7 +83,11 @@ static gpointer scribe_logging_func(gpointer data)
 	}
 
 	g_async_queue_unref(context->queue);
-	transport->close();
+	try {
+		transport->close();
+	} catch(TTransportException &exception) {
+	}
+
 	return NULL;
 }
 
